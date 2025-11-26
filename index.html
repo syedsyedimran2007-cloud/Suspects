@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Intelligence Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- TERMINAL INTRO -->
+    <div id="terminal-screen">
+        <pre id="terminal-text"></pre>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="app" class="hidden">
+
+        <!-- RED ALARM OVERLAY -->
+        <div id="alert-overlay" class="hidden"></div>
+
+        <!-- HEADER WITH LOGO -->
+        <header>
+            <img src="images/logo.jpg" class="logo" />
+            <h1>POLICE CRIME ANALYSIS SYSTEM</h1>
+            <p>INTELLIGENCE • TRACKING • SURVEILLANCE</p>
+        </header>
+
+        <!-- SIREN AUDIO -->
+        <audio id="siren-sound" src="sounds/siren.mp3"></audio>
+
+        <!-- RADAR SCREEN -->
+        <div class="radar-box">
+            <p class="r-title">LIVE RADAR TRACKING</p>
+            <div class="radar"></div>
+        </div>
+
+        <!-- CCTV FEED -->
+        <div class="cctv-box">
+            <p class="cctv-title">CCTV FEED - SUSPECT AREA</p>
+            <div class="cctv-screen">
+                <img src="images/police.jpg">
+                <div class="cctv-static"></div>
+                <div class="scan-line"></div>
+            </div>
+        </div>
+
+        <!-- SUSPECT ZOOM FACE TRACKING -->
+        <div class="zoom-box">
+            <p>FACE MATCHING - SUSPECT DATABASE</p>
+            <div class="zoom-screen">
+                <img src="images/suspects.jpg">
+                <div class="zoom-crosshair"></div>
+            </div>
+        </div>
+
+        <!-- FINGERPRINT -->
+        <div class="finger-box">
+            <p>FINGERPRINT IDENTIFICATION</p>
+            <div class="finger-scan">
+                <img src="images/suspects.jpg" class="fingerprint-img">
+                <div class="scan-bar"></div>
+            </div>
+        </div>
+
+        <!-- LOADING BARS -->
+        <div class="loading-section">
+            <p>Processing suspect profiles...</p>
+            <div class="load-bar"><div></div></div>
+            <div class="load-bar"><div></div></div>
+            <div class="load-bar"><div></div></div>
+        </div>
+
+        <!-- AUTO TYPING SUSPECT REPORT -->
+        <div class="report">
+            <h2>SUSPECT REPORT</h2>
+            <pre id="report-text"></pre>
+        </div>
+
+        <!-- SUSPECT CARDS -->
+        <div class="suspect">
+            <h2>Suspect #1 : FAIZAN</h2>
+            <img src="images/suspects.jpg" class="sus-img">
+            <p><b>Crime:</b> Laughing in class by a police officer</p>
+            <p><b>Reward:</b> ₹1,00,000</p>
+            <p><b>Contact:</b> +91 1234567890</p>
+        </div>
+
+        <div class="suspect">
+            <h2>Suspect #2 : AMAN</h2>
+            <img src="images/suspects.jpg" class="sus-img">
+            <p><b>Crime:</b> Laughing in class by a police officer</p>
+            <p><b>Reward:</b> ₹1,00,000</p>
+            <p><b>Contact:</b> +91 1234567890</p>
+        </div>
+
+        <button id="trigger-alert">ACTIVATE RED ALERT</button>
+
+    </div>
+
+<script src="script.js"></script>
+</body>
+  </html>
