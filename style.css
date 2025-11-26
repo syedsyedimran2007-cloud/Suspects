@@ -1,0 +1,221 @@
+/* BODY & TERMINAL */
+body {
+    margin: 0;
+    font-family: monospace;
+    background: black;
+    color: red;
+    overflow-x: hidden;
+}
+
+#terminal-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    color: #00ff00;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.hidden { display: none; }
+
+/* ALERT OVERLAY */
+#alert-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255,0,0,0.3);
+    backdrop-filter: blur(5px);
+    animation: alertFlash 0.2s infinite;
+    z-index: 999;
+}
+
+@keyframes alertFlash {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+header .logo {
+    width: 120px;
+    animation: glowLogo 1.5s infinite alternate;
+}
+
+@keyframes glowLogo {
+    0% { filter: drop-shadow(0 0 2px red); }
+    100% { filter: drop-shadow(0 0 10px red); }
+}
+
+header h1 { margin: 5px 0; font-size: 28px; color: #ff0000; }
+header p { font-size: 16px; color: #ff6666; }
+
+/* RADAR */
+.radar-box { margin: 20px auto; text-align: center; }
+.radar {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: relative;
+    background: radial-gradient(circle, rgba(0,0,0,0.1) 10%, transparent 70%);
+    overflow: hidden;
+}
+
+.radar::before {
+    content: '';
+    position: absolute;
+    width: 2px; height: 100%;
+    background: red;
+    transform-origin: bottom;
+    animation: radarSweep 2s linear infinite;
+}
+
+@keyframes radarSweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* CCTV FEED */
+.cctv-box { margin: 20px auto; text-align: center; }
+.cctv-title { color: #ff0000; margin-bottom: 5px; }
+.cctv-screen {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    position: relative;
+    border: 2px solid red;
+    overflow: hidden;
+}
+
+.cctv-screen img {
+    width: 100%;
+    opacity: 0.6;
+}
+
+.scan-line {
+    width: 100%;
+    height: 3px;
+    background: red;
+    position: absolute;
+    top: 0;
+    animation: scanDown 3s linear infinite;
+}
+
+@keyframes scanDown {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+.cctv-static {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.05) 3px);
+    animation: staticShake 0.1s infinite;
+}
+
+@keyframes staticShake {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-1px,1px); }
+    100% { transform: translate(0,0); }
+}
+
+/* ZOOM FACE TRACKING */
+.zoom-box { text-align: center; margin: 20px; }
+.zoom-screen {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid red;
+}
+.zoom-screen img { width: 100%; transition: transform 2s ease-in-out; animation: zoomCycle 5s infinite alternate; }
+@keyframes zoomCycle {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+.zoom-crosshair {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed red;
+    box-sizing: border-box;
+}
+
+/* FINGERPRINT SCANNER */
+.finger-box { text-align: center; margin: 20px; }
+.finger-scan {
+    position: relative;
+    width: 200px; height: 250px;
+    margin: auto;
+    border: 2px solid red;
+}
+.fingerprint-img { width: 100%; opacity: 0.3; filter: grayscale(1) brightness(0.5); }
+.scan-bar {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: red;
+    animation: scanFinger 2s linear infinite;
+}
+@keyframes scanFinger {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* LOADING BARS */
+.loading-section { text-align: center; margin: 20px; }
+.load-bar {
+    width: 80%; height: 10px;
+    border: 1px solid red; margin: 5px auto;
+    overflow: hidden;
+}
+.load-bar div {
+    width: 0%; height: 100%; background: red;
+    animation: loadAnim 2s infinite;
+}
+@keyframes loadAnim {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+}
+
+/* SUSPECT CARDS */
+.suspect {
+    border: 1px solid red;
+    margin: 15px auto;
+    padding: 15px;
+    max-width: 400px;
+    text-align: center;
+    background: rgba(20,0,0,0.5);
+}
+.suspect img.sus-img { width: 100%; margin: 10px 0; }
+
+/* AUTO-TYPING REPORT */
+.report { text-align: center; margin: 20px; }
+.report pre { background: black; color: #00ff00; padding: 10px; }
+
+/* ALERT BUTTON */
+#trigger-alert {
+    display: block;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 18px;
+    background: red;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+/* RESPONSIVE MOBILE */
+@media(max-width: 500px){
+    .zoom-screen, .finger-scan, .cctv-screen, .radar { width: 90%; height: auto; }
+  }
